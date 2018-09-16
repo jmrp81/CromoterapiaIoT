@@ -3,9 +3,9 @@
 //Variables
 const byte rxPin = 11;
 const byte txPin = 10;
-const int GREEN_pin = 9;  
-const int BLUE_pin = 13;  
-const int RED_pin = 12;  
+const int GREEN_pin = 3;  
+const int BLUE_pin = 5;  
+const int RED_pin = 6;  
 String RGBColor = ""; 
 String RGBColor_previous = "255.255.255"; // inicializacion a blanco
 boolean RGBRead_Completed = false;
@@ -74,9 +74,9 @@ void Control_RGB_StripLed() {
     String BlueColor = RGBColor.substring(position2RGBColor + 1, position3RGBColor);
 
     //Pass string colors to int and get color variety between 0 - 255
-    digitalWrite(GREEN_pin, (GreenColor.toInt()));// you can use de analogWrite if you use this arduino's conections
-    digitalWrite(BLUE_pin, (BlueColor.toInt()));
-    digitalWrite(RED_pin, (RedColor.toInt()));
+    analogWrite(GREEN_pin, (GreenColor.toInt()));// you can use de analogWrite if you use this arduino's conections
+    analogWrite(BLUE_pin, (BlueColor.toInt()));
+    analogWrite(RED_pin, (RedColor.toInt()));
 
     // If you need to invert colors, you could change GreenColor.toInt() by (255 - GreenColor.toInt())
 }
